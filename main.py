@@ -3,6 +3,8 @@ import time
 import requests
 from prodiapy import Prodia
 from io import BytesIO
+from keep_alive import keep_alive
+keep_alive()
 
 # Credenciales de la API de Twitter
 bearer_token = 'AAAAAAAAAAAAAAAAAAAAAJcBvgEAAAAA3LsruGyvQXRDXfLbyyuieON0rvM%3DuRA4K5nttUM4W0UnARtc5TRrqelHq2KtGHrh7UcpYajQ3ddM1w' 
