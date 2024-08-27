@@ -1,17 +1,17 @@
 import tweepy
 import time
 import requests
+import os
 from prodiapy import Prodia
 from io import BytesIO
 from keep_alive import keep_alive
 keep_alive()
 
 # Credenciales de la API de Twitter
-bearer_token = 'AAAAAAAAAAAAAAAAAAAAAJcBvgEAAAAA3LsruGyvQXRDXfLbyyuieON0rvM%3DuRA4K5nttUM4W0UnARtc5TRrqelHq2KtGHrh7UcpYajQ3ddM1w' 
-consumer_key = 'CVdrBpgj87rQMzOgMWbLbAUgb'
-consumer_secret = '0l9Xy5OvWPkucc4yl9GPRoDLLNGv15AxeHJi4fvng1wPLjWOH3'
-access_token = '1826682670505480192-CITJTWvBL93bEs3AZnjtNIz0Ai4yWD'
-access_token_secret = 'RWoDsUtOBbtt7ju0HdgR7uUc9pJRKhzAVZepZnJcX55HE'
+consumer_key = os.environ.get('CONSUMER_KEY')
+consumer_secret = os.environ.get('CONSUMER_SECRET')
+access_token = os.environ.get('ACCESS_TOKEN')
+access_token_secret = os.environ.get('ACCESS_TOKEN_SECRET')
 
 # Autenticación en Twitter
 auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token, access_token_secret)
@@ -20,7 +20,7 @@ client = tweepy.Client(consumer_key=consumer_key, consumer_secret=consumer_secre
 
 # Autenticación en Prodia
 prodia = Prodia(
-    api_key="ab05637d-f6f9-4713-995f-52af812d1432"
+    api_key=os.environ.get('API_KEY')
 )
 
 # Lista de 24 prompts
